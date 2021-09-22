@@ -11,23 +11,16 @@ import (
 	"github.com/spf13/viper"
 )
 
-type ConfigInterface interface {
-	Get(string) string
-	LoadConfig()
+func Load() {
+	bootstrapEnv()
+	bootstrapConfig()
 }
 
-type Config struct {}
-
-func (c *Config) Get(key string) string {
+func Get(key string) string {
 	var value string
 	viper.UnmarshalKey(key, &value, viper.DecodeHook(decodeHook))
 
 	return value
-}
-
-func (f *Config) LoadConfig() {
-	bootstrapEnv()
-	bootstrapConfig()
 }
 
 func bootstrapEnv() {
