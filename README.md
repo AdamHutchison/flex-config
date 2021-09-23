@@ -25,6 +25,9 @@ func main() {
 }
 ```
 
+## Accessing Env values
+After `config.Load()` has been called, Env values located in the `.env` can be accessed using `os.Getenv("ENV_VARIABLE_NAME")`
+
 ## Setting Config Values Using Env Variables
 Env variables may be used in the `config.yaml` file using the `${ENV_VARIABLE_NAME}` syntax:
 
